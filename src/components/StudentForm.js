@@ -7,17 +7,18 @@ const StudentForm = ({ onSubmit, initialData }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   useEffect(() => {
+    console.log(initialData)
     if (initialData) {
       setName(initialData.name || '');
       setAge(initialData.age || '');
-      setStudentClass(initialData.class || '');
+      setStudentClass(initialData.studentClass || '');
       setPhoneNumber(initialData.phoneNumber || '');
     }
   }, [initialData]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ name, age, class: studentClass, phoneNumber });
+    onSubmit({ name, age, studentClass: studentClass, phoneNumber });
     setName('');
     setAge('');
     setStudentClass('');
